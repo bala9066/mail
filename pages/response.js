@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Render content with basic markdown support
     function renderContent(text) {
-        // Simple markdown rendering
+        // Simple markdown rendering — content is escaped first for safety
         let html = escapeHtml(text);
 
         // Bold: **text**
@@ -124,7 +124,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Blockquotes: > text
         html = html.replace(/^&gt; (.+)$/gm, '<blockquote>$1</blockquote>');
 
-        responseContent.innerHTML = html;
+        // Use DOMParser for safe insertion (content already escaped above)
+        const parser = new DOMParser();
+        const doc = parser.parseFromString('<div>' + html + '</div>', 'text/html');
+        responseContent.textContent = '';
+        while (doc.body.firstChild.firstChild) {
+            responseContent.appendChild(doc.body.firstChild.firstChild);
+        }
 
         // Auto-scroll to bottom during streaming
         responseContent.scrollTop = responseContent.scrollHeight;
@@ -138,11 +144,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function showError(message) {
         responseLoading.style.display = 'none';
-        responseContent.innerHTML = `
-            <div class="response-error">
-                <h3>⚠️ Error</h3>
-                <p>${escapeHtml(message)}</p>
-            </div>`;
+        responseContent.textContent = '';
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'response-error';
+        const h3 = document.createElement('h3');
+        h3.textContent = '⚠️ Error';
+        const p = document.createElement('p');
+        p.textContent = message;
+        errorDiv.appendChild(h3);
+        errorDiv.appendChild(p);
+        responseContent.appendChild(errorDiv);
     }
 
     function showFooter(usage, model) {
