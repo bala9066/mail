@@ -1,0 +1,8 @@
+{
+    "extensionName": {
+        "message": "DP Mail AI Assist"
+    },
+    "extensionDescription": {
+        "message": "AI-powered email assistant with attachment summarization. Works with any OpenAI-compatible LLM."
+    }
+}

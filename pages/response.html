@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DP Mail AI Assist — Response</title>
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="response.css">
+</head>
+<body>
+    <div class="response-container">
+        <!-- Header -->
+        <div class="response-header">
+            <div class="response-header-left">
+                <img src="../icons/icon-32.png" alt="" width="24" height="24">
+                <div>
+                    <h1 class="response-title" id="action-title">AI Response</h1>
+                    <p class="response-meta" id="email-subject"></p>
+                </div>
+            </div>
+            <div class="response-header-right">
+                <button class="btn btn-secondary btn-sm" id="btn-copy" title="Copy to clipboard">📋 Copy</button>
+                <button class="btn btn-secondary btn-sm" id="btn-stop" title="Stop generation" style="display: none;">⏹️ Stop</button>
+            </div>
+        </div>
+
+        <!-- Response Content -->
+        <div class="response-body" id="response-body">
+            <div class="response-loading" id="response-loading">
+                <div class="spinner"></div>
+                <span>Preparing response...</span>
+            </div>
+            <div class="response-content" id="response-content"></div>
+        </div>
+
+        <!-- Footer / Token Usage -->
+        <div class="response-footer" id="response-footer" style="display: none;">
+            <div class="token-info" id="token-info"></div>
+            <div class="model-info" id="model-info"></div>
+        </div>
+    </div>
+
+    <script src="../lib/llm-client.js"></script>
+    <script src="response.js"></script>
+</body>
+</html>

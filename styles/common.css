@@ -1,0 +1,215 @@
+/* DP Mail AI Assist — Common Styles */
+
+:root {
+    --bg-primary: #1a1b2e;
+    --bg-secondary: #232440;
+    --bg-card: #2a2b4a;
+    --bg-hover: #35365a;
+    --bg-active: #3d3e6a;
+    --text-primary: #e8e9f0;
+    --text-secondary: #9fa1b8;
+    --text-muted: #6b6d85;
+    --accent: #6c63ff;
+    --accent-hover: #7c74ff;
+    --accent-glow: rgba(108, 99, 255, 0.3);
+    --success: #4caf50;
+    --success-bg: rgba(76, 175, 80, 0.15);
+    --error: #ff5252;
+    --error-bg: rgba(255, 82, 82, 0.15);
+    --warning: #ffc107;
+    --warning-bg: rgba(255, 193, 7, 0.15);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-focus: rgba(108, 99, 255, 0.5);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --radius: 10px;
+    --radius-sm: 6px;
+    --transition: 0.2s ease;
+    --font: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Form Controls */
+input[type="text"],
+input[type="password"],
+input[type="url"],
+input[type="number"],
+select,
+textarea {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    color: var(--text-primary);
+    font-family: var(--font);
+    font-size: 13px;
+    width: 100%;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    border: none;
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+.btn-primary:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 0 16px var(--accent-glow);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+.btn-secondary:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent);
+}
+
+.btn-danger {
+    background: var(--error);
+    color: #fff;
+}
+.btn-danger:hover {
+    filter: brightness(1.1);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Badges / Status */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.badge-success {
+    background: var(--success-bg);
+    color: var(--success);
+}
+.badge-error {
+    background: var(--error-bg);
+    color: var(--error);
+}
+.badge-warning {
+    background: var(--warning-bg);
+    color: var(--warning);
+}
+
+/* Cards */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+}
+
+/* Spinner / Loading */
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Status message */
+.status-message {
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    display: none;
+}
+.status-message.visible {
+    display: block;
+}
+.status-message.success {
+    background: var(--success-bg);
+    color: var(--success);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+.status-message.error {
+    background: var(--error-bg);
+    color: var(--error);
+    border: 1px solid rgba(255, 82, 82, 0.3);
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+    animation: fadeIn 0.3s ease;
+}

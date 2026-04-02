@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DP Mail AI Assist — Settings</title>
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="options-container">
+        <!-- Header -->
+        <div class="options-header">
+            <img src="../icons/icon-64.png" alt="" width="40" height="40">
+            <div>
+                <h1 class="options-title">DP Mail AI Assist</h1>
+                <p class="options-subtitle">Configure your AI connection and preferences</p>
+            </div>
+        </div>
+
+        <!-- API Configuration -->
+        <section class="card settings-section fade-in">
+            <h2 class="section-title">🔗 API Configuration</h2>
+
+            <div class="form-group">
+                <label for="api-base-url">API Base URL</label>
+                <input type="url" id="api-base-url" placeholder="https://api.openai.com/v1">
+                <span class="form-hint">For Ollama: http://localhost:11434/v1 | For LM Studio: http://localhost:1234/v1</span>
+            </div>
+
+            <div class="form-group">
+                <label for="api-key">API Key</label>
+                <div class="input-with-toggle">
+                    <input type="password" id="api-key" placeholder="sk-...">
+                    <button class="toggle-visibility" id="toggle-key" title="Show/Hide">👁️</button>
+                </div>
+                <span class="form-hint">Optional for local endpoints (Ollama, LM Studio)</span>
+            </div>
+
+            <div class="form-group">
+                <label for="model-name">Model Name</label>
+                <div class="input-with-button">
+                    <input type="text" id="model-name" placeholder="gpt-4o-mini">
+                    <button class="btn btn-secondary btn-sm" id="btn-fetch-models">Fetch Models</button>
+                </div>
+                <div id="models-list" class="models-dropdown" style="display: none;"></div>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn btn-secondary" id="btn-test">🔌 Test Connection</button>
+                <div class="status-message" id="test-status"></div>
+            </div>
+        </section>
+
+        <!-- Generation Settings -->
+        <section class="card settings-section fade-in" style="animation-delay: 0.1s;">
+            <h2 class="section-title">⚡ Generation Settings</h2>
+
+            <div class="form-group">
+                <label for="max-tokens">Max Tokens</label>
+                <input type="number" id="max-tokens" min="100" max="128000" step="100" value="4096">
+                <span class="form-hint">Maximum number of tokens in the AI response</span>
+            </div>
+
+            <div class="form-group">
+                <label for="temperature">
+                    Temperature: <span id="temp-value" class="temp-display">0.7</span>
+                </label>
+                <input type="range" id="temperature" min="0" max="2" step="0.1" value="0.7" class="range-slider">
+                <div class="range-labels">
+                    <span>Precise (0)</span>
+                    <span>Creative (2)</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="stream-responses" checked>
+                    <span>Enable streaming responses</span>
+                </label>
+                <span class="form-hint">Show AI response as it generates (recommended)</span>
+            </div>
+        </section>
+
+        <!-- Save Bar -->
+        <div class="save-bar">
+            <div class="status-message" id="save-status"></div>
+            <button class="btn btn-primary" id="btn-save">💾 Save Settings</button>
+        </div>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{
+    "manifest_version": 2,
+    "name": "DP Mail AI Assist",
+    "description": "AI-powered email assistant with attachment summarization. Works with any OpenAI-compatible LLM.",
+    "version": "1.0.0",
+    "author": "DP",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "dp-mail-ai-assist@dp.dev",
+            "strict_min_version": "115.0"
+        }
+    },
+    "message_display_action": {
+        "default_title": "DP Mail AI Assist",
+        "default_icon": {
+            "16": "icons/icon-16.png",
+            "32": "icons/icon-32.png",
+            "64": "icons/icon-64.png"
+        },
+        "default_popup": "popup/popup.html"
+    },
+    "compose_action": {
+        "default_title": "DP Mail AI Assist",
+        "default_icon": {
+            "16": "icons/icon-16.png",
+            "32": "icons/icon-32.png",
+            "64": "icons/icon-64.png"
+        },
+        "default_popup": "popup/popup.html"
+    },
+    "permissions": [
+        "compose",
+        "messagesRead",
+        "storage",
+        "menus",
+        "messagesModify",
+        "tabs",
+        "activeTab",
+        "accountsRead"
+    ],
+    "optional_permissions": [
+        "https://*/*",
+        "http://*/*",
+        "<all_urls>"
+    ],
+    "background": {
+        "scripts": [
+            "vendor/pdf.min.js",
+            "vendor/jszip.min.js",
+            "vendor/xlsx.min.js",
+            "lib/utils.js",
+            "lib/llm-client.js",
+            "lib/extractors/text-extractor.js",
+            "lib/extractors/pdf-extractor.js",
+            "lib/extractors/docx-extractor.js",
+            "lib/extractors/xlsx-extractor.js",
+            "lib/extractors/image-handler.js",
+            "lib/attachment-reader.js",
+            "prompts/defaults.js",
+            "background/background.js"
+        ]
+    },
+    "icons": {
+        "16": "icons/icon-16.png",
+        "32": "icons/icon-32.png",
+        "64": "icons/icon-64.png"
+    },
+    "options_ui": {
+        "page": "options/options.html",
+        "open_in_tab": true
+    }
+}

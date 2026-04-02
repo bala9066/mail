@@ -1,0 +1,194 @@
+/* DP Mail AI Assist — Options Page Styles */
+
+body {
+    padding: 0;
+    background: var(--bg-primary);
+    min-height: 100vh;
+}
+
+.options-container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 30px 20px 100px;
+}
+
+/* Header */
+.options-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.options-title {
+    font-size: 22px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #8b7fff, #6c63ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2px;
+}
+
+.options-subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* Sections */
+.settings-section {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+}
+
+.form-hint {
+    display: block;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.input-with-toggle,
+.input-with-button {
+    display: flex;
+    gap: 6px;
+}
+
+.input-with-toggle input,
+.input-with-button input {
+    flex: 1;
+}
+
+.toggle-visibility {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background var(--transition);
+}
+.toggle-visibility:hover {
+    background: var(--bg-hover);
+}
+
+/* Models Dropdown */
+.models-dropdown {
+    max-height: 200px;
+    overflow-y: auto;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    margin-top: 6px;
+}
+
+.model-item {
+    padding: 8px 14px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background var(--transition);
+    border-bottom: 1px solid var(--border);
+}
+.model-item:last-child { border-bottom: none; }
+.model-item:hover {
+    background: var(--bg-hover);
+    color: var(--accent);
+}
+
+/* Range Slider */
+.range-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--bg-secondary);
+    outline: none;
+    border: none;
+    padding: 0;
+}
+.range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    border: 3px solid var(--bg-primary);
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* Checkbox */
+.checkbox-label {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+}
+
+/* Temperature Display */
+.temp-display {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Save Bar */
+.save-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 20px;
+    background: linear-gradient(to top, var(--bg-primary) 60%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    z-index: 10;
+}
+
+.save-bar .status-message {
+    flex: 1;
+}

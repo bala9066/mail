@@ -1,0 +1,183 @@
+/* DP Mail AI Assist — Response Page Styles */
+
+body {
+    padding: 0;
+    min-height: 100vh;
+    background: var(--bg-primary);
+}
+
+.response-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.response-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.response-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.response-header-right {
+    display: flex;
+    gap: 8px;
+}
+
+.response-title {
+    font-size: 16px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #8b7fff, #6c63ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.response-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Response Body */
+.response-body {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.response-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* Content Rendering */
+.response-content {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.response-content h1,
+.response-content h2,
+.response-content h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--accent);
+}
+
+.response-content strong,
+.response-content b {
+    color: #fff;
+    font-weight: 700;
+}
+
+.response-content ul,
+.response-content ol {
+    padding-left: 24px;
+    margin: 8px 0;
+}
+
+.response-content li {
+    margin: 4px 0;
+}
+
+.response-content code {
+    background: var(--bg-secondary);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Cascadia Code', 'Fira Code', monospace;
+    font-size: 13px;
+}
+
+.response-content pre {
+    background: var(--bg-secondary);
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    overflow-x: auto;
+    margin: 12px 0;
+    border: 1px solid var(--border);
+}
+
+.response-content pre code {
+    background: none;
+    padding: 0;
+}
+
+.response-content blockquote {
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+    margin: 12px 0;
+    color: var(--text-secondary);
+}
+
+/* Blinking cursor effect during streaming */
+.streaming-cursor::after {
+    content: '▊';
+    animation: blink 0.8s infinite;
+    color: var(--accent);
+    font-weight: 100;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Footer */
+.response-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.token-info,
+.model-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Error State */
+.response-error {
+    background: var(--error-bg);
+    border: 1px solid rgba(255, 82, 82, 0.3);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin: 20px 0;
+    color: var(--error);
+}
+
+.response-error h3 {
+    margin-bottom: 8px;
+    color: var(--error);
+}

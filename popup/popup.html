@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <!-- Header -->
+        <div class="popup-header">
+            <div class="popup-logo">
+                <img src="../icons/icon-32.png" alt="DP Mail AI Assist" width="24" height="24">
+                <span class="popup-title">DP Mail AI Assist</span>
+            </div>
+            <button class="settings-btn" id="btn-settings" title="Settings">⚙️</button>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="popup-status" id="status-bar">
+            <span class="status-indicator" id="status-indicator"></span>
+            <span class="status-text" id="status-text">Checking connection...</span>
+        </div>
+
+        <!-- Message Display Actions -->
+        <div class="action-group" id="display-actions">
+            <div class="action-group-title">📧 Email Actions</div>
+            <button class="action-btn" data-action="summarizeEmail">
+                <span class="action-icon">📝</span>
+                <span class="action-label">Summarize Email</span>
+            </button>
+            <button class="action-btn" data-action="summarizeAttachments">
+                <span class="action-icon">📎</span>
+                <span class="action-label">Summarize Attachments</span>
+            </button>
+            <button class="action-btn" data-action="summarizeAll">
+                <span class="action-icon">📬</span>
+                <span class="action-label">Summarize All</span>
+            </button>
+            <button class="action-btn" data-action="draftReply">
+                <span class="action-icon">✍️</span>
+                <span class="action-label">Draft Reply</span>
+            </button>
+            <button class="action-btn" data-action="customPrompt">
+                <span class="action-icon">🔍</span>
+                <span class="action-label">Custom Prompt</span>
+            </button>
+        </div>
+
+        <!-- Compose Actions -->
+        <div class="action-group" id="compose-actions" style="display: none;">
+            <div class="action-group-title">✏️ Compose Actions</div>
+            <button class="action-btn" data-action="improveWriting">
+                <span class="action-icon">✨</span>
+                <span class="action-label">Improve Writing</span>
+            </button>
+            <button class="action-btn" data-action="rewrite">
+                <span class="action-icon">📝</span>
+                <span class="action-label">Rewrite</span>
+            </button>
+            <button class="action-btn" data-action="proofread">
+                <span class="action-icon">✅</span>
+                <span class="action-label">Proofread</span>
+            </button>
+        </div>
+
+        <!-- Custom Prompt Input (hidden by default) -->
+        <div class="custom-prompt-area" id="custom-prompt-area" style="display: none;">
+            <textarea id="custom-prompt-input" rows="4" placeholder="Enter your custom prompt..."></textarea>
+            <div class="custom-prompt-actions">
+                <button class="btn btn-secondary btn-sm" id="btn-cancel-custom">Cancel</button>
+                <button class="btn btn-primary btn-sm" id="btn-send-custom">Send</button>
+            </div>
+        </div>
+
+        <!-- Attachment Info -->
+        <div class="attachment-info" id="attachment-info" style="display: none;">
+            <span class="attachment-icon">📎</span>
+            <span class="attachment-text" id="attachment-count"></span>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div class="popup-loading" id="loading-overlay" style="display: none;">
+            <div class="spinner"></div>
+            <span>Processing...</span>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
